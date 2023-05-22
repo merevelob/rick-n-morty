@@ -1,0 +1,132 @@
+.contenedor {
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0px auto;
+    position: relative;
+}
+
+.idnumber {
+    position: absolute;
+    right: 32px;
+    bottom: 34px;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'displayfree';
+    text-align: right;
+    color: var(--color7);
+    background-color: #c3c3c3;
+    border: 2px double var(--color7);
+    border-radius: 5px;
+    padding: 6px 5px 4px 7px;
+    z-index: 2;
+}
+
+.panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    /* background-color: rgba(255, 99, 71, 0.568); */
+}
+
+.linkcontainer {
+    height: 34%;
+    width: 75%;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 3;
+    /* background-color: rgba(255, 255, 0, 0.493); */
+}
+
+.nombre {
+    text-shadow: 0 0 0.2em var(--color8);
+    width: 100%;
+    color: var(--color2);
+    font-size: xxx-large;
+    font-family: 'schwifty';
+    z-index: inherit;
+    /* background-color: rgba(137, 43, 226, 0.658); */
+}
+
+.info {
+    position: relative;
+    width: 80%;
+    color: var(--color8);
+    /* background-color: rgba(0, 128, 0, 0.404); */
+}
+
+.propiedades {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 2px;
+    padding-left: 80px;
+}
+
+.propiedades h2 {
+    font-size: large;
+    font-family: 'displayfree';
+    width: auto;
+    text-align: left;
+}
+
+.screen {
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    height: 96%;
+    width: 96%;
+    filter: drop-shadow(0px 0px 1em var(--color2));
+}
+
+.icons {
+    position: absolute;
+    left: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 45px;
+    height: 100%;
+}
+
+.icons > img {
+    background-color: var(--color2);
+    width: 100%;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.imagecont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 38%;
+    height: 90%;
+    /* background-color: rgba(0, 0, 255, 0.658); */
+}
+
+.circlefr {
+    position: absolute;
+    height: 100%;
+    left: 0.5;
+    filter: drop-shadow(0px 0px 0.5em var(--color2));
+}
+
+.charpic {
+    height: 80%;
+    border-radius: 50%;
+}
+

@@ -1,3 +1,29 @@
+:root {
+   --color1: #eceb77;
+   --color2: #3BC9D9;
+   --color3: #B3D92B;
+   --color4: #E4F279;
+   --color5: #333333;
+   --color6: rgba(248, 248, 255, 0.6);
+   --color7: #454545;
+   --color8: #91db2f;
+   --verde-bckgnd: #74be43;
+}
+
+@font-face {
+   font-family: 'schwifty';
+   src: local('Get Schwifty Regular'), url('./fonts/get_schwifty.ttf');
+}
+
+@font-face {
+   font-family: 'displayfree';
+   src: local('DISPLAY FREE TFB_plus Regular'), url('./fonts/DISPLAYFREETFB_plus-Regular.otf');
+}
+
 .App {
    text-align: center;
+   box-sizing: border-box;
+   min-height: 100vh;
+   background-size: 100vw;
+   background-image: url('./images/rym_fondo-mediodef.jpg');
 }
