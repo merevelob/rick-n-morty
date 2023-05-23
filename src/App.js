@@ -1,16 +1,47 @@
-import React from 'react';
+// Helpers
+import { useState, useEffect } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
-import Cards from './components/Cards/Cards.jsx';
+// Components
 import Nav from './components/Nav/Nav';
+import Cards from './components/Cards/Cards.jsx';
 import Detail from './components/Detail/Detail';
 import About from './components/About/About';
 import About2 from './components/About/About2';
-import { useState } from 'react';
-import axios from 'axios';
-import { Route, Routes } from 'react-router-dom';
+import Form from './components/Form/Form';
 
 function App() {
+   // Credenciales falsas
+   const EMAIL = 'mock@mail.com';
+   const PASSWORD = 'abc123';
+   
+   // Hooks
    const [characters, setCharacters] = useState([]);
+   const [access, setAccess] = useState(false);
+   const {pathname} = useLocation();
+   const navigate = useNavigate();
+   
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+   
+   // Funciones
+   function login(userData) {
+      if (userData.password === PASSWORD && userData.email === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      } else alert('Email y/o password incorrectos.');
+   }
+
+   function guest() {
+      setAccess(true);
+      navigate('/home');
+   }
+
+   function logout() {
+      setAccess(false);
+   }
 
    function onSearch(id) {   
       axios(`https://rickandmortyapi.com/api/character/${id}`)
@@ -29,8 +60,9 @@ function App() {
 
    return (
       <div className='App'>
-         <Nav onSearch={onSearch} />
+         {(pathname !== '/') && <Nav onSearch={onSearch} logout={logout} />}
          <Routes>
+            <Route path='/' element={<Form login={login} guest={guest} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About />} />
             <Route path='/about/extra' element={<About2 />} />

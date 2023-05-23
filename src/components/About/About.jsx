@@ -1,15 +1,17 @@
 import style from "../Card/Card.module.css";
 import ownstyle from "./About.module.css";
 import { mycard } from "./mycard";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function About() {
+    const navigate = useNavigate();
+
     const {id, name, status, species, origin, image} = mycard;
     return (      
         <div className={ownstyle.mycard}>
             <div className={style.contenedor}>
                 <span className={style.idnumber}>{id}</span>
-                <img className={style.botonClose} src={require('../../images/rym_xbutton.png')} />
+                <img className={style.botonClose} src={require('../../images/rym_xbutton.png')} onClick={() => navigate('/home')}/>
                 <img src={require('../../images/rym_scifi-frame.png')} className={style.frame}/>
                 <div className={style.linkcontainer}>
                     <h2 className={style.nombre}>
