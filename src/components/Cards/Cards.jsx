@@ -9,7 +9,7 @@ export default function Cards(props) {
              const {id, name, status, species, gender, origin, image} = character;
              return <Card
                key={id}
-               idChar={id}
+               id={id}
                name={name}
                status={status}
                species={species}

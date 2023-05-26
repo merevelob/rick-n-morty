@@ -29,12 +29,30 @@
     z-index: 2;
 }
 
+.botonFav {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 7%;
+    border: 3px solid var(--color7);
+    background-color: var(--color7);
+    cursor: pointer;
+    margin: auto;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.botonFav:hover {
+    width: 8%;
+}
+
 .botonClose {
     position: absolute;
     right: 5px;
     top: 5px;
     width: 7%;
     border: 3px solid var(--color7);
+    background-color: var(--color7);
     cursor: pointer;
     font-weight: bolder;
     margin: auto;
@@ -44,9 +62,11 @@
 
 .botonClose:hover {
     border: 3px solid #3bc9d9c9;
+    background-color: #3bc9d9c9;
 }
 
 .botonClose:active {
+    background-color: var(--color2);
     box-shadow: 0 0 0.4em var(--color2);
     border: 3px solid var(--color2);
 }

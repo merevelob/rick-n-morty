@@ -1,9 +1,22 @@
-import style from "./Card.module.css";
+import { connect } from "react-redux";
+import { addFav, removeFav } from "../../redux/actions";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import style from "./Card.module.css";
 
-export default function Card(props) {
-   const {idChar, name, status, species, gender, origin, image, onClose} = props;
+function Card(props) {
+   const {id, name, status, species, origin, image, onClose, addFav, removeFav, myFavourites} = props;
    
+   const [isFav, setIsFav] = useState(false);
+
+   /* useEffect(() => {
+      myFavourites.forEach((fav) => {
+         if (fav.id === props.id) {
+            setIsFav(true);
+         }
+      });
+   }, [myFavourites]); */
+
    const tresDigitos = (num) => {
       const unCero = '0';
       const dobleCero = '00';
@@ -12,14 +25,29 @@ export default function Card(props) {
       return num;
    };
 
+   function handleFavourite() {
+      if (isFav) {
+         setIsFav(false);
+         removeFav(id);
+      } else {
+         setIsFav(true);
+         addFav(props);
+      }
+   }
+
    return (
       <div className={style.contenedor}>
-         <span className={style.idnumber}>{tresDigitos(idChar)}</span>
-         <img className={style.botonClose} onClick={() => onClose(idChar)} src={require('../../images/rym_xbutton.png')} />
+         {isFav ? (
+            <img src={require('../../images/rym_fav-button-active.png')} onClick={handleFavourite} className={style.botonFav} />
+         ) : (
+            <img src={require('../../images/rym_fav-button-normal.png')} onClick={handleFavourite} className={style.botonFav} />
+         )}
+         <span className={style.idnumber}>{tresDigitos(id)}</span>
+         <img className={style.botonClose} onClick={() => onClose(id)} src={require('../../images/rym_xbutton.png')} />
          <img src={require('../../images/rym_scifi-frame.png')} className={style.frame}/>
          <div className={style.linkcontainer}>
             <h2 className={style.nombre}>
-               <Link to={`/detail/${idChar}`} className={style.link}>{name}</Link>
+               <Link to={`/detail/${id}`} className={style.link}>{name}</Link>
             </h2>
          </div>
          <div className={style.info}>
@@ -32,7 +60,6 @@ export default function Card(props) {
             <div className={style.propiedades}>
                <h2>{status}</h2>
                <h2>{species}</h2>
-               {/* <h2>{gender}</h2> */}
                <h2>{origin.name}</h2>
             </div>
          </div>
@@ -43,3 +70,18 @@ export default function Card(props) {
       </div>
    );
 }
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      addFav: (character) => dispatch(addFav(character)),
+      removeFav: (id) => dispatch(removeFav(id))
+   };
+};
+
+/* const mapStateToProps = (state) => {
+   return {
+      myFavourites: state.myFavourites
+   };
+}; */
+
+export default connect(null, mapDispatchToProps)(Card);

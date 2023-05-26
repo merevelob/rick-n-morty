@@ -1,6 +1,5 @@
 import { ADD_FAV, REMOVE_FAV } from "./actions";
 
-
 const initialState = {
     myFavourites: []
 };
@@ -12,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case REMOVE_FAV:
             return {...state, myFavourites: state.myFavourites.filter(character => character.id !== Number(action.payload))};
         default:
-            return {state};
+            return state;
     }
 };
 
