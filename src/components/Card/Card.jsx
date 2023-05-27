@@ -9,13 +9,11 @@ function Card(props) {
    
    const [isFav, setIsFav] = useState(false);
 
-   /* useEffect(() => {
+   useEffect(() => {
       myFavourites.forEach((fav) => {
-         if (fav.id === props.id) {
-            setIsFav(true);
-         }
+         if (fav.id === props.id) setIsFav(true);
       });
-   }, [myFavourites]); */
+   }, [myFavourites]);
 
    const tresDigitos = (num) => {
       const unCero = '0';
@@ -71,6 +69,12 @@ function Card(props) {
    );
 }
 
+const mapStateToProps = (state) => {
+   return {
+      myFavourites: state.myFavourites
+   };
+};
+
 const mapDispatchToProps = (dispatch) => {
    return {
       addFav: (character) => dispatch(addFav(character)),
@@ -78,10 +82,4 @@ const mapDispatchToProps = (dispatch) => {
    };
 };
 
-/* const mapStateToProps = (state) => {
-   return {
-      myFavourites: state.myFavourites
-   };
-}; */
-
-export default connect(null, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

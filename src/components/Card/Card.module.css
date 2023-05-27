@@ -1,10 +1,10 @@
 .contenedor {
     width: 300px;
     height: 470px;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0px auto;
     background-color: rgb(160, 160, 160);
     position: relative;
 }
@@ -31,44 +31,44 @@
 
 .botonFav {
     position: absolute;
-    left: 5px;
-    top: 5px;
-    width: 7%;
-    border: 3px solid var(--color7);
-    background-color: var(--color7);
-    cursor: pointer;
+    top: 6px;
+    left: 7px;
+    width: 8%;
     margin: auto;
-    border-radius: 50%;
+    filter: drop-shadow(0px 0px 1px var(--color7));
+    cursor: pointer;
     z-index: 2;
 }
 
 .botonFav:hover {
-    width: 8%;
+    top: 5px;
+    left: 6px;
+    width: 9%;
 }
 
 .botonClose {
     position: absolute;
-    right: 5px;
-    top: 5px;
+    top: 6px;
+    right: 6px;
     width: 7%;
-    border: 3px solid var(--color7);
-    background-color: var(--color7);
-    cursor: pointer;
-    font-weight: bolder;
     margin: auto;
+    background-color: var(--color7);
+    border: 2px solid var(--color7);
     border-radius: 50%;
+    box-shadow: 0 0 2px var(--color7);
+    cursor: pointer;
     z-index: 2;
 }
 
 .botonClose:hover {
-    border: 3px solid #3bc9d9c9;
     background-color: #3bc9d9c9;
+    border-color: #3bc9d9c9;
 }
 
 .botonClose:active {
     background-color: var(--color2);
+    border-color: var(--color2);
     box-shadow: 0 0 0.4em var(--color2);
-    border: 3px solid var(--color2);
 }
 
 .frame {
@@ -80,17 +80,19 @@
 
 .linkcontainer {
     height: 95px;
-    padding: 22px 15px 0px;
+    padding: 24px 15px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* background-color: rgba(255, 255, 0, 0.726); */
 }
 
 .link {
-    text-decoration: none;
-    text-shadow: 0 0 0.2em var(--color8);
     width: 100%;
     color: var(--color5);
+    text-decoration: none;
+    text-shadow: 0 0 0.2em var(--color8);
+    /* background-color: rgba(255, 0, 0, 0.692); */
 }
 
 .link:hover {
@@ -99,8 +101,8 @@
 }
 
 .nombre {
-    font-size: x-large;
     font-family: 'schwifty';
+    font-size: x-large;
     z-index: 3;
 }
 
@@ -108,12 +110,12 @@
     position: relative;
     width: 100%;
     height: 100px;
+    color: var(--color8);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
-    color: var(--color8);
     /* background-color: rgba(0, 128, 0, 0.63); */
 }
 
@@ -128,11 +130,11 @@
 }
 
 .propiedades h2 {
-    font-size: 11px;
-    font-family: 'displayfree';
     width: auto;
-    text-align: left;
     margin-left: 62px;
+    font-family: 'displayfree';
+    font-size: 11px;
+    text-align: left;
 }
 
 .screen {
@@ -145,21 +147,21 @@
 .icons {
     position: absolute;
     left: 38px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
     width: 18px;
     height: 100px;
     padding-top: 1px;
     padding-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .icons > img {
-    background-color: var(--color2);
     width: 100%;
-    border-radius: 5px;
     padding: 1px;
+    background-color: var(--color2);
+    border-radius: 5px;
 }
 
 .imagecont {
@@ -171,10 +173,10 @@
 
 .circlefr {
     position: absolute;
+    top: 5px;
+    left: 39px;
     height: auto;
     width: 220px;
-    left: 39px;
-    top: 5px;
     margin: auto;
 }
 

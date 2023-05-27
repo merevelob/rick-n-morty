@@ -10,6 +10,7 @@ import Detail from './components/Detail/Detail';
 import About from './components/About/About';
 import About2 from './components/About/About2';
 import Form from './components/Form/Form';
+import Favourites from './components/Favourites/Favourites';
 
 function App() {
    // Credenciales falsas
@@ -67,6 +68,7 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/about/extra' element={<About2 />} />
             <Route path='/detail/:id' element={<Detail />} />
+            <Route path='/favourites' element={<Favourites onClose={onClose} />} />
          </Routes>
       </div>
    );
