@@ -11,6 +11,7 @@ import About from './components/About/About';
 import About2 from './components/About/About2';
 import Form from './components/Form/Form';
 import Favourites from './components/Favourites/Favourites';
+import { mycard } from './components/About/mycard';
 
 function App() {
    // Credenciales falsas
@@ -41,18 +42,28 @@ function App() {
    }
 
    function logout() {
+      setCharacters([]);
       setAccess(false);
    }
 
    function onSearch(id) {   
-      axios(`https://rickandmortyapi.com/api/character/${id}`)
-         .then(({data}) => {
-            if (data.name && characters.findIndex(character => character.id === data.id) === -1) {
-               setCharacters((currentChar) => [...currentChar, data]);
-            } else window.alert('¡Ya se agregó un personaje con este Id!');})
-         .catch((error) => {
-            if (error.response) window.alert('¡No hay personajes con este Id!');
-         });
+      if (id === '827') {
+         if (characters.findIndex(character => character.id === mycard.id) === -1) {
+            setCharacters((currentChar) => [...currentChar, mycard]);
+         } else window.alert('¡Ya se agregó un personaje con este id!');
+         (pathname !== '/home') && navigate('/home');
+      } else {
+         axios(`https://rickandmortyapi.com/api/character/${id}`)
+            .then(({data}) => {
+               if (data.name && characters.findIndex(character => character.id === data.id) === -1) {
+                  setCharacters((currentChar) => [...currentChar, data]);
+               } else window.alert('¡Ya se agregó un personaje con este id!');
+               (pathname !== '/home') && navigate('/home');
+            })
+            .catch((error) => {
+               if (error.response) window.alert('¡No hay personajes con este id!');
+            });
+      }
    }
    
    function onClose(id) {
@@ -65,7 +76,7 @@ function App() {
          <Routes>
             <Route path='/' element={<Form login={login} guest={guest} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
-            <Route path='/about' element={<About />} />
+            <Route path='/about' element={<About onClose={onClose} />} />
             <Route path='/about/extra' element={<About2 />} />
             <Route path='/detail/:id' element={<Detail />} />
             <Route path='/favourites' element={<Favourites onClose={onClose} />} />

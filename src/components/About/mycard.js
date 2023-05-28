@@ -1,5 +1,5 @@
 export const mycard = {
-        id: 900,
+        id: 827,
         name: 'Mauricio Revelo',
         status: 'Alive',
         species: 'Alien',

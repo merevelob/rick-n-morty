@@ -16,16 +16,17 @@
 .idnumber {
     position: absolute;
     right: 41px;
-    top: 121px;
+    top: 122px;
+    padding: 4px 3px 2px 5px;
+    font-family: 'displayfree';
     font-size: 12px;
     font-weight: bold;
-    font-family: 'displayfree';
     text-align: right;
     color: var(--color7);
     background-color: #c3c3c3;
     border: 1px solid var(--color7);
     border-radius: 3px;
-    padding: 4px 3px 2px 5px;
+    box-shadow: 0 0 1px var(--color7);
     z-index: 2;
 }
 
@@ -61,8 +62,8 @@
 }
 
 .botonClose:hover {
-    background-color: #3bc9d9c9;
-    border-color: #3bc9d9c9;
+    background-color: #33b1be;
+    border-color: #33b1be;
 }
 
 .botonClose:active {
@@ -116,12 +117,12 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
-    /* background-color: rgba(0, 128, 0, 0.63); */
 }
 
 .propiedades {
     position: absolute;
     top: 2px;
+    max-width: 91%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

@@ -33,6 +33,14 @@ function Card(props) {
       }
    }
 
+   function newOnClose() {
+      if (isFav) {
+         setIsFav(false);
+         removeFav(id);
+      }
+      onClose(id);
+   }
+
    return (
       <div className={style.contenedor}>
          {isFav ? (
@@ -41,11 +49,15 @@ function Card(props) {
             <img src={require('../../images/rym_fav-button-normal.png')} onClick={handleFavourite} className={style.botonFav} />
          )}
          <span className={style.idnumber}>{tresDigitos(id)}</span>
-         <img className={style.botonClose} onClick={() => onClose(id)} src={require('../../images/rym_xbutton.png')} />
+         <img className={style.botonClose} onClick={newOnClose} src={require('../../images/rym_xbutton.png')} />
          <img src={require('../../images/rym_scifi-frame.png')} className={style.frame}/>
          <div className={style.linkcontainer}>
             <h2 className={style.nombre}>
-               <Link to={`/detail/${id}`} className={style.link}>{name}</Link>
+               {(id === 827) ? (
+                  <Link to={`/about/extra`} className={style.link}>{name}</Link>
+               ) : (
+                  <Link to={`/detail/${id}`} className={style.link}>{name}</Link>
+               )}
             </h2>
          </div>
          <div className={style.info}>

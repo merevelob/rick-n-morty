@@ -1,16 +1,17 @@
-import style from './SearchBar.module.css';
 import { useState } from 'react';
+import style from './SearchBar.module.css';
 
 export default function SearchBar(props) {
-   const {onSearch} = props;
    const [id, setId] = useState('');
+   
+   const { onSearch } = props;
 
    function handleChange(event) {
       setId(event.target.value);
    }
 
    function randomSearch() {
-      const randomNum = 1 + Math.floor(Math.random() * 826);
+      const randomNum = 1 + Math.floor(Math.random() * 827);
       onSearch(randomNum);
    }
 
