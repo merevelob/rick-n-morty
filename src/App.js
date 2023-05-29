@@ -12,16 +12,13 @@ import About2 from './components/About/About2';
 import Form from './components/Form/Form';
 import Favourites from './components/Favourites/Favourites';
 import { mycard } from './components/About/mycard';
+import { EMAIL, PASSWORD } from './components/Form/credenciales';
 
 function App() {
-   // Credenciales falsas
-   const EMAIL = 'mock@mail.com';
-   const PASSWORD = 'abc123';
-   
    // Hooks
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
-   const {pathname} = useLocation();
+   const { pathname } = useLocation();
    const navigate = useNavigate();
    
    useEffect(() => {

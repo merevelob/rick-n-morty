@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import style from "./Card.module.css";
 
 function Card(props) {
-   const {id, name, status, species, origin, image, onClose, addFav, removeFav, myFavourites} = props;
+   const { id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavourites, allCharacters } = props;
    
    const [isFav, setIsFav] = useState(false);
 
    useEffect(() => {
-      myFavourites.forEach((fav) => {
+      allCharacters.forEach((fav) => {
          if (fav.id === props.id) setIsFav(true);
       });
    }, [myFavourites]);
@@ -83,7 +83,8 @@ function Card(props) {
 
 const mapStateToProps = (state) => {
    return {
-      myFavourites: state.myFavourites
+      myFavourites: state.myFavourites,
+      allCharacters: state.allCharacters
    };
 };
 

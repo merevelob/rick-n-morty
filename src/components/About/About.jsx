@@ -13,7 +13,7 @@ export default function About(props) {
         navigate('/home');
     }
 
-    const { id, name, status, species, origin, image } = mycard;
+    const { id, name, status, species, gender, origin, image } = mycard;
     
     return (
         <div className={style.mycard}>
@@ -23,6 +23,7 @@ export default function About(props) {
                 name={name}
                 status={status}
                 species={species}
+                gender={gender}
                 origin={origin}
                 image={image}
                 onClose={myOnClose}

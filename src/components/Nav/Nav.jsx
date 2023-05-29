@@ -1,17 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { resetFav } from "../../redux/actions";
+import { resetFav, showAll } from "../../redux/actions";
 import SearchBar from "../SearchBar/SearchBar";
 import style from "./Nav.module.css";
 
 export default function Nav(props) {
     const dispatch = useDispatch();
-    
+    const { pathname } = useLocation();
+
     const { onSearch, logout } = props;
     
     function fullLogout() {
         dispatch(resetFav());
         logout();
+    }
+
+    function backToFav() {
+        (pathname !== '/favourites') && dispatch(showAll());
     }
 
     return (
@@ -22,20 +27,8 @@ export default function Nav(props) {
             <div className={style.contBotones}>
                 <Link to='/home' className={style.link}>Home</Link>
                 <Link to='/about' className={style.link}>About</Link>
-                <Link to='/favourites' className={style.link}>Favourites</Link>
-                {/* <ul>
-                    <li>
-                    <Link to='/home' className={style.link}>Home</Link>
-                    </li>
-                    <li>
-                    <Link to='/about' className={style.link}>About</Link>
-                    </li>
-                    <li>
-                    <Link to='/favourites' className={style.link}>Favourites</Link>
-                    </li>
-                </ul> */}
+                <Link to='/favourites' className={style.link} onClick={backToFav}>Favourites</Link>
             </div>
-            {/* <div className={style.empty}></div> */}
             <SearchBar onSearch={onSearch} />
             <div className={style.contLogout}>
                 <button className={style.logoutButton} onClick={fullLogout}>Log out</button>

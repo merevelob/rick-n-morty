@@ -6,7 +6,7 @@ export const mycard = {
         gender: 'Male',
         origin: {
            name: 'Andromeda Galaxy',
-           url: 'https://rickandmortyapi.com/api/location/1',
+           url: ''
         },
         image: require("../../images/rym_mycartoonpic.png")
-}
+};
