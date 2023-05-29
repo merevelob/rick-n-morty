@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { resetFav, showAll } from "../../redux/actions";
 import SearchBar from "../SearchBar/SearchBar";
@@ -10,6 +10,12 @@ export default function Nav(props) {
 
     const { onSearch, logout } = props;
     
+    const activeLink = ({ isActive }) => {
+        return {
+        backgroundColor: isActive ? 'ghostwhite' : ""
+        }
+    };
+
     function fullLogout() {
         dispatch(resetFav());
         logout();
@@ -25,9 +31,9 @@ export default function Nav(props) {
                 <img src={require("../../images/rym_logo.png")} alt="Rick and Morty logo" />
             </div>
             <div className={style.contBotones}>
-                <Link to='/home' className={style.link}>Home</Link>
-                <Link to='/about' className={style.link}>About</Link>
-                <Link to='/favourites' className={style.link} onClick={backToFav}>Favourites</Link>
+                <NavLink to='/home' className={style.link} style={activeLink}>Home</NavLink>
+                <NavLink to='/about' className={style.link} style={activeLink}>About</NavLink>
+                <NavLink to='/favourites' className={style.link} style={activeLink} onClick={backToFav}>Favourites</NavLink>
             </div>
             <SearchBar onSearch={onSearch} />
             <div className={style.contLogout}>
