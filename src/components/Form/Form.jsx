@@ -1,6 +1,6 @@
 import { useState } from "react";
 import validate from './validation';
-// import style from './Form.module.css';
+import style from './Form.module.css';
 
 
 export default function Form(props) {
@@ -34,21 +34,35 @@ export default function Form(props) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email<input type="text" name="email" value={userData.email} onChange={handleChange} /></label>
-                    <p>{errors.email}</p>
+        <div className={style.view}>
+            <div className={style.contenedor}>
+                <div className={style.contLogo}>
+                    <img src={require("../../images/rym_portal.png")} alt="Portal" className={style.portal} />
+                    <img src={require("../../images/rym_logo.png")} alt="Rick and Morty logo" className={style.logo} />
                 </div>
-                <div>
-                    <label>Password<input type="password" name="password" value={userData.password} onChange={handleChange} /></label>
-                    <p>{errors.password}</p>
+                <div className={style.contForm}>
+                    <form onSubmit={handleSubmit}>
+                        <div className={style.field}>
+                            <label>Email</label>
+                            <input type="text" name="email" value={userData.email} onChange={handleChange} className={style.input} />
+                            <div className={style.errors}>
+                                <p>{errors.email}</p>
+                            </div>
+                        </div>
+                        <div className={style.field}>
+                            <label>Password</label>
+                            <input type="password" name="password" value={userData.password} onChange={handleChange} className={style.input} />
+                            <div className={style.errors}>
+                                <p>{errors.password}</p>
+                            </div>
+                        </div>
+                        <input type="submit" name="submit" value='Log in' className={style.boton} />
+                    </form>
                 </div>
-                <input type="submit" name="submit" value='Log in'/>
-            </form>
-            <hr />
-            <div>
-                <button onClick={guest}>Continuar como invitado</button>
+                <hr />
+                <div className={style.contGuest}>
+                    <button onClick={guest} className={style.boton}>Continuar como invitado</button>
+                </div>
             </div>
         </div>
     );
