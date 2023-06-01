@@ -7,11 +7,12 @@
     align-items: center;
     margin: 0px auto;
     position: relative;
+    /* background-color: rgba(255, 0, 0, 0.658); */
 }
 
 .idnumber {
     position: absolute;
-    right: 32px;
+    right: 31px;
     bottom: 34px;
     font-size: x-large;
     font-weight: bold;
@@ -31,8 +32,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 90%;
+    /* width: 50%; */
+    width: 680px;
+    /* height: 90%; */
+    height: 490px;
     /* background-color: rgba(255, 99, 71, 0.568); */
 }
 
@@ -113,8 +116,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 38%;
-    height: 90%;
+    /* width: 38%; */
+    width: 520px;
+    height: 490px;
     /* background-color: rgba(0, 0, 255, 0.658); */
 }
 

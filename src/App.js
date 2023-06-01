@@ -67,16 +67,21 @@ function App() {
       setCharacters(characters.filter(character => character.id !== Number(id)));
    }
 
+   function clearAll() {
+      setCharacters([]);
+      (pathname !== '/home') && navigate('/home');
+   }
+
    return (
       <div className='App'>
-         {(pathname !== '/') && <Nav onSearch={onSearch} logout={logout} />}
+         {(pathname !== '/') && <Nav onSearch={onSearch} logout={logout} clearAll={clearAll} />}
          <Routes>
             <Route path='/' element={<Form login={login} guest={guest} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
-            <Route path='/about' element={<About onClose={onClose} />} />
+            <Route path='/about' element={<About />} />
             <Route path='/about/extra' element={<About2 />} />
             <Route path='/detail/:id' element={<Detail />} />
-            <Route path='/favourites' element={<Favourites onClose={onClose} />} />
+            <Route path='/favourites' element={<Favourites />} />
          </Routes>
       </div>
    );

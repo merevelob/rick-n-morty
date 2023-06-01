@@ -1,12 +1,14 @@
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import style from "./Card.module.css";
 
 function Card(props) {
    const { id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavourites, allCharacters } = props;
    
+   const { pathname } = useLocation();
+
    const [isFav, setIsFav] = useState(false);
 
    useEffect(() => {
@@ -49,7 +51,11 @@ function Card(props) {
             <img src={require('../../images/rym_fav-button-normal.png')} onClick={handleFavourite} className={style.botonFav} />
          )}
          <span className={style.idnumber}>{tresDigitos(id)}</span>
-         <img className={style.botonClose} onClick={newOnClose} src={require('../../images/rym_xbutton.png')} />
+         {(pathname === '/home' ) ? (
+            <img className={style.botonClose} onClick={newOnClose} src={require('../../images/rym_xbutton.png')} />
+         ) : (
+            <img className={style.noBoton} src={require('../../images/rym_no-button.png')} />
+         )}
          <img src={require('../../images/rym_scifi-frame.png')} className={style.frame}/>
          <div className={style.linkcontainer}>
             <h2 className={style.nombre}>

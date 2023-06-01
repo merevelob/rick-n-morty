@@ -1,3 +1,66 @@
+.contFilters {
+    /* background-color: #74be43ad; */
+    /* background-color: var(--color7); */
+    background-color: #333333b6;
+    height: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .filters {
-    background-color: rgba(0, 128, 0, 0.671);
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: medium;
+    font-weight: 600;
+    color: var(--color5);
+    background-color: var(--color1);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filter:required:invalid {
+    color: #333333af;
+}
+
+.filter option[value=""][disabled] {
+    display: none;
+}
+
+.filter option {
+    font-weight: 600;
+    color: var(--color5);
+}
+
+.botonShow, .botonClear {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: medium;
+    font-weight: 600;
+    color: var(--color5);
+    background-color: var(--verde-bckgnd);
+    /* background-color: var(--color12); */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.botonShow:hover {
+    background-color: #82d44a;
+}
+
+.botonClear {
+    /* background-color: var(--color1); */
+    background-color: #cbd86b;
+}
+
+.botonClear:hover {
+    /* background-color: #d3d3d3; */
+    background-color: #ddeb74;
 }

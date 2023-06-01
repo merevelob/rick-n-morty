@@ -5,7 +5,7 @@ import Cards from "../Cards/Cards";
 import style from "./Favourites.module.css";
 
 function Favourites(props) {
-    const { myFavourites, onClose, orderCards, filterCards, resetFav, showAll } = props;
+    const { myFavourites, orderCards, filterCards, resetFav, showAll } = props;
     
     const [aux, setAux] = useState(false);
     
@@ -31,7 +31,7 @@ function Favourites(props) {
         });
     }
 
-    function clearAll() {
+    function clearAllFav() {
         resetFav();
         setSelected({
             selOrder: '',
@@ -49,23 +49,25 @@ function Favourites(props) {
     
     return (
         <div className={style.container}>
-            <div className={style.filters}>
-                <select onChange={handleOrder} value={selected.selOrder}>
-                    <option value="" disabled selected hidden>Order</option>
-                    <option value="A">Ascending</option>
-                    <option value="D">Descending</option>
-                </select>
-                <select onChange={handleFilter} value={selected.selGender}>
-                    <option value="" disabled selected hidden>Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Genderless">Genderless</option>
-                    <option value="unknown">unknown</option>
-                </select>
-                <button onClick={allFav}>Show all</button>
-                <button onClick={clearAll}>Clear all</button>
+            <div className={style.contFilters}>
+                <div className={style.filters}>
+                    <select onChange={handleOrder} value={selected.selOrder} className={style.filter} required>
+                        <option value="" disabled selected>Order</option>
+                        <option value="A">Ascending</option>
+                        <option value="D">Descending</option>
+                    </select>
+                    <select onChange={handleFilter} value={selected.selGender} className={style.filter} required>
+                        <option value="" disabled selected>Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Genderless">Genderless</option>
+                        <option value="unknown">unknown</option>
+                    </select>
+                    <button onClick={allFav} className={style.botonShow}>Show all</button>
+                    <button onClick={clearAllFav} className={style.botonClear}>Clear all</button>
+                </div>
             </div>
-            <Cards characters={myFavourites} onClose={onClose} />
+            <Cards characters={myFavourites} />
         </div>
     );
 }

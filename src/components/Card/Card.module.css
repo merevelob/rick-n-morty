@@ -47,7 +47,7 @@
     width: 9%;
 }
 
-.botonClose {
+.botonClose, .noBoton {
     position: absolute;
     top: 6px;
     right: 6px;
@@ -61,9 +61,14 @@
     z-index: 2;
 }
 
+.noBoton {
+    cursor: default;
+}
+
 .botonClose:hover {
     background-color: #33b1be;
     border-color: #33b1be;
+    box-shadow: 0 0 0.4em #33b1be;
 }
 
 .botonClose:active {

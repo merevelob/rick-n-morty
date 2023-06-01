@@ -26,7 +26,7 @@ export default function SearchBar(props) {
 
    return (
       <div className={style.contenedor}>
-         <input type='search' placeholder="Ingresa Id de personaje" className={style.input} onChange={handleChange} value={id} onKeyDown={handleKeyPress} />
+         <input type='search' placeholder="Enter character id" className={style.input} onChange={handleChange} value={id} onKeyDown={handleKeyPress} />
          <button className={style.boton} onClick={cleanSearch}>Agregar</button>
          <button className={style.randomButton} onClick={randomSearch}>Aleatorio</button>
       </div>

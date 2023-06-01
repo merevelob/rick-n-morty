@@ -8,7 +8,7 @@ export default function Nav(props) {
     const dispatch = useDispatch();
     const { pathname } = useLocation();
 
-    const { onSearch, logout } = props;
+    const { onSearch, logout, clearAll } = props;
     
     const activeLink = ({ isActive }) => {
         return {
@@ -16,14 +16,21 @@ export default function Nav(props) {
         }
     };
 
+    function backToFav() {
+        (pathname !== '/favourites') && dispatch(showAll());
+    }
+
+    function clearAllAll() {
+        dispatch(resetFav());
+        clearAll();
+    }
+
     function fullLogout() {
         dispatch(resetFav());
         logout();
     }
 
-    function backToFav() {
-        (pathname !== '/favourites') && dispatch(showAll());
-    }
+    
 
     return (
         <nav className={style.navbar}>
@@ -36,6 +43,9 @@ export default function Nav(props) {
                 <NavLink to='/favourites' className={style.link} style={activeLink} onClick={backToFav}>Favourites</NavLink>
             </div>
             <SearchBar onSearch={onSearch} />
+            <div className={style.contClear}>
+                <button className={style.botonClear} onClick={clearAllAll}>Clear all</button>
+            </div>
             <div className={style.contLogout}>
                 <button className={style.logoutButton} onClick={fullLogout}>Log out</button>
             </div>
