@@ -18,7 +18,6 @@ export default function Detail() {
         return setCharacter({});
     }, [id]);
 
-
     const tresDigitos = (num) => {
         const unCero = '0';
         const dobleCero = '00';
@@ -28,21 +27,22 @@ export default function Detail() {
      };
 
     const { name, status, species, gender, origin, image } = character;
+    
     if (name && status && species && gender && origin && image) {
         return (
             <div className={style.contenedor}>
                 <div className={style.panel}>
-                    <img src={require('../../images/rym_sci-fi-screen.png')} className={style.screen} />
+                    <img src={require('../../images/rym_sci-fi-screen.png')} className={style.screen} alt="" />
                     <span className={style.idnumber}>{tresDigitos(id)}</span>
                     <div className={style.linkcontainer}>
                         <h2 className={style.nombre}>{name}</h2>
                     </div>
                     <div className={style.info}>
                         <div className={style.icons}>
-                            <img src={require('../../images/rym_skull-icon.png')} />
-                            <img src={require('../../images/rym_alien-icon.png')} />
-                            <img src={require('../../images/rym_gender-icon.png')} />
-                            <img src={require('../../images/rym_planet-icon-black.png')} />
+                            <img src={require('../../images/rym_skull-icon.png')} alt="skull icon" />
+                            <img src={require('../../images/rym_alien-icon.png')} alt="alien icon" />
+                            <img src={require('../../images/rym_gender-icon.png')} alt="gender icon" />
+                            <img src={require('../../images/rym_planet-icon-black.png')} alt="planet icon" />
                         </div>
                         <div className={style.propiedades}>
                             <h2>{status}</h2>
@@ -54,7 +54,7 @@ export default function Detail() {
                 </div>
                 <div className={style.imagecont}>
                     <img src={image} alt={`${name}`} className={style.charpic} />
-                    <img src={require('../../images/rym_circle-frame.png')} className={style.circlefr}/>
+                    <img src={require('../../images/rym_circle-frame.png')} className={style.circlefr} alt="" />
                 </div>
             </div>
         );

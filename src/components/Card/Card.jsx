@@ -8,7 +8,6 @@ function Card(props) {
    const { id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavourites, allCharacters } = props;
    
    const { pathname } = useLocation();
-
    const [isFav, setIsFav] = useState(false);
 
    useEffect(() => {
@@ -46,17 +45,17 @@ function Card(props) {
    return (
       <div className={style.contenedor}>
          {isFav ? (
-            <img src={require('../../images/rym_fav-button-active.png')} onClick={handleFavourite} className={style.botonFav} />
+            <img src={require('../../images/rym_fav-button-active.png')} onClick={handleFavourite} className={style.botonFav} alt="" />
          ) : (
-            <img src={require('../../images/rym_fav-button-normal.png')} onClick={handleFavourite} className={style.botonFav} />
+            <img src={require('../../images/rym_fav-button-normal.png')} onClick={handleFavourite} className={style.botonFav} alt="" />
          )}
          <span className={style.idnumber}>{tresDigitos(id)}</span>
          {(pathname === '/home' ) ? (
-            <img className={style.botonClose} onClick={newOnClose} src={require('../../images/rym_xbutton.png')} />
+            <img className={style.botonClose} onClick={newOnClose} src={require('../../images/rym_xbutton.png')} alt="" />
          ) : (
-            <img className={style.noBoton} src={require('../../images/rym_no-button.png')} />
+            <img className={style.noBoton} src={require('../../images/rym_no-button.png')} alt="" />
          )}
-         <img src={require('../../images/rym_scifi-frame.png')} className={style.frame}/>
+         <img src={require('../../images/rym_scifi-frame.png')} className={style.frame} alt="" />
          <div className={style.linkcontainer}>
             <h2 className={style.nombre}>
                {(id === 827) ? (
@@ -67,11 +66,11 @@ function Card(props) {
             </h2>
          </div>
          <div className={style.info}>
-            <img src={require('../../images/rym_sci-fi-screen.png')} className={style.screen} />
+            <img src={require('../../images/rym_sci-fi-screen.png')} className={style.screen} alt="" />
             <div className={style.icons}>
-               <img src={require('../../images/rym_skull-icon.png')} />
-               <img src={require('../../images/rym_alien-icon.png')} />
-               <img src={require('../../images/rym_planet-icon-black.png')} />
+               <img src={require('../../images/rym_skull-icon.png')} alt="skull icon" />
+               <img src={require('../../images/rym_alien-icon.png')} alt="alien icon" />
+               <img src={require('../../images/rym_planet-icon-black.png')} alt="planet icon" />
             </div>
             <div className={style.propiedades}>
                <h2>{status}</h2>
@@ -81,7 +80,7 @@ function Card(props) {
          </div>
          <div className={style.imagecont}>
             <img src={image} alt={`${name}`} className={style.charpic} />
-            <img src={require('../../images/rym_circle-frame.png')} className={style.circlefr}/>
+            <img src={require('../../images/rym_circle-frame.png')} className={style.circlefr} alt="" />
          </div>
       </div>
    );

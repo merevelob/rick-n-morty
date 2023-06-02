@@ -1,16 +1,11 @@
-// Helpers
+// Components
+import { Nav, Cards, Detail, About, About2, Form, Favourites } from './components';
+// Resources
 import { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-// Components
-import Nav from './components/Nav/Nav';
-import Cards from './components/Cards/Cards.jsx';
-import Detail from './components/Detail/Detail';
-import About from './components/About/About';
-import About2 from './components/About/About2';
-import Form from './components/Form/Form';
-import Favourites from './components/Favourites/Favourites';
+// Constants
 import { mycard } from './components/About/mycard';
 import { EMAIL, PASSWORD } from './components/Form/credenciales';
 
@@ -25,7 +20,7 @@ function App() {
       !access && navigate('/');
    }, [access]);
    
-   // Funciones
+   // Functions
    function login(userData) {
       if (userData.password === PASSWORD && userData.email === EMAIL) {
          setAccess(true);

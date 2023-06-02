@@ -35,7 +35,7 @@
     position: absolute;
     z-index: 1;
     animation-name: portal;
-    animation-duration: 30s;
+    animation-duration: 40s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }

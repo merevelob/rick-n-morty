@@ -5,11 +5,11 @@ import SearchBar from "../SearchBar/SearchBar";
 import style from "./Nav.module.css";
 
 export default function Nav(props) {
+    const { onSearch, logout, clearAll } = props;
+    
     const dispatch = useDispatch();
     const { pathname } = useLocation();
 
-    const { onSearch, logout, clearAll } = props;
-    
     const activeLink = ({ isActive }) => {
         return {
         backgroundColor: isActive ? 'ghostwhite' : ""
@@ -29,8 +29,6 @@ export default function Nav(props) {
         dispatch(resetFav());
         logout();
     }
-
-    
 
     return (
         <nav className={style.navbar}>
