@@ -1,13 +1,10 @@
 .contenedor {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 65px;
-    padding: 25px 0px 50px;
+    min-height: calc(100vh - 160px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 30px;
 }
-
-@media screen and (max-width: 600px) {
-    .contenedor {
-        grid-template-columns: 1fr;
-    }
-}
-
