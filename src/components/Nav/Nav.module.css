@@ -9,6 +9,7 @@
 .logo {
     width: 210px;
     padding: 5px 30px;
+    display: flex;
     /* background-color: rgba(0, 0, 255, 0.61); */
 }
 
